@@ -6,13 +6,22 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeesTableComponent } from './components/employees-table/employees-table.component';
+import { EmployeesViewComponent } from './components/employees-view/employees-view.component';
 
 import { MatTableModule } from '@angular/material/table'
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './components/home/home.component';
+import { GroupsViewComponent } from './components/groups-view/groups-view.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeesTableComponent
+    EmployeesTableComponent,
+    EmployeesViewComponent,
+    HomeComponent,
+    GroupsViewComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +31,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
     // Angular Material
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
