@@ -9,7 +9,7 @@ export class GroupService {
 
   private url = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/groups/omar_pelcastre"
   private groupEmployeesUrl = 
-  "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/:tu_nombre/getByGroup?id="
+  "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar_pelcastre/getByGroup?id="
   constructor(private _httpClient: HttpClient) {
 
   }

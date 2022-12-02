@@ -1,5 +1,6 @@
 import { CdkDragDrop, copyArrayItem, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatListOption } from '@angular/material/list';
 import { Group } from 'src/app/interfaces/Group';
 import { GroupService } from 'src/app/services/group.service';
 
@@ -12,7 +13,11 @@ export class GroupsViewComponent implements OnInit {
 
   groups: Group[] = [];
   selected: Group[];
+  selectedEmployees: any[];
 
+  checked: boolean = false;
+
+  @ViewChild("employeeList") list: any;
   employees: any[] = [];
   constructor(private groupService: GroupService) { }
 
@@ -23,32 +28,21 @@ export class GroupsViewComponent implements OnInit {
   getGroups(){
     this.groupService.getGroups().subscribe(
       response => {
-        console.log(response);
+        // console.log(response);
         if(response.data.groups){
           this.groups = response.data.groups
           this.selected = [this.groups[0]]
           this.getEmployeesByGroup(this.selected[0].id)
-
-          // this.selected.push(this.groups[0])
         }
       }
     )
   }
 
   drop(event: CdkDragDrop<any[]>) {
-    console.log(this.groups);
-    console.log(this.selected);
-    
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       this.selected = []
-      // copyArrayItem(
-      //   event.previousContainer.data,
-      //   event.container.data,
-      //   event.previousIndex,
-      //   event.currentIndex,
-      // );
       this.selected = [this.groups[event.previousIndex]]
       this.getEmployeesByGroup(this.selected[0].id)
     }
@@ -57,10 +51,30 @@ export class GroupsViewComponent implements OnInit {
   getEmployeesByGroup(id: number){
     this.groupService.getEmployeesByGroup(id).subscribe(
       response => {
-        console.log(response);
-        this.employees = response.data.employees
+        this.checked = false
+        if(response.data.employees)
+          this.employees = response.data.employees
       }
     )
+  }
+
+  checkedChange(){
+    if(this.checked){
+      // seleccionar todos los empleados
+      this.list.options._results.forEach((item: MatListOption) => {
+        item.selected = true
+      });
+    }else{
+      // deseleccionar todos los empleados
+      this.list.options._results.forEach((item: MatListOption) => {
+        item.selected = false
+      });
+    }
+  }
+
+  showAllSelectedEmployees(){
+    console.log(this.selectedEmployees);
+    
   }
 
 }

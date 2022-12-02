@@ -16,3 +16,14 @@
 .group-item{
     margin-bottom: 1rem;
 }
+
+.group-name{
+    display: flex;
+    align-items: baseline;
+} 
+
+.group-bottons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

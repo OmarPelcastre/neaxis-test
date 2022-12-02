@@ -9,10 +9,23 @@
 
     <div class="groups-container">
         <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="selected" [cdkDropListConnectedTo]="[todoList]"
-            class="example-list" (cdkDropListDropped)="drop($event)">
-            <h2>{{selected[0].name}}</h2>
+            class="group-name" (cdkDropListDropped)="drop($event)">
+            <mat-checkbox [(ngModel)]="checked" (ngModelChange)="checkedChange()"></mat-checkbox>
+            <h2 style="margin-left: 10px;">{{selected[0].name}}</h2>  
+
         </div>
-        <mat-list role="list">
-            <mat-list-item *ngFor="let employee of employees" role="listitem">{{employee.name}}</mat-list-item>
-        </mat-list>
+        
+        <mat-selection-list #employeeList [(ngModel)]="selectedEmployees">
+            <mat-list-option checkboxPosition="before" *ngFor="let employee of employees" [value]="employee">
+                {{employee.name}}
+            </mat-list-option>
+        </mat-selection-list>
+
+        <div class="group-bottons">
+            <p>
+                {{employeeList.selectedOptions.selected.length}}
+            </p>
+    
+            <button mat-raised-button color="primary" (click)="showAllSelectedEmployees()">Continuar</button>
+        </div>
     </div>

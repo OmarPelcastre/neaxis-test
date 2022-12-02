@@ -23,10 +23,11 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 import { MatCarouselModule } from 'ng-mat-carousel';
@@ -64,7 +65,8 @@ import { MatCarouselModule } from 'ng-mat-carousel';
     MatCardModule,
     MatCarouselModule.forRoot(),
     DragDropModule,
-    MatListModule
+    MatListModule,
+    MatCheckboxModule
 
   ],
   providers: [],
