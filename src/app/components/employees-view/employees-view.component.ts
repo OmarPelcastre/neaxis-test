@@ -23,8 +23,7 @@ export class EmployeesViewComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       if(result == 'success'){
-        this.searchInTable = " "
-        this.searchInTable = ""
+        this.searchInTable = "!!!&"
       }
       console.log('The dialog was closed');
     });

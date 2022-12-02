@@ -1,22 +1,25 @@
 <div class="modal-container">
     <h1 mat-dialog-title>Crear nuevo empleado </h1>
     <div mat-dialog-content class="form">
-      <mat-form-field class="inputs" appearance="fill">
-        <mat-label>Nombre</mat-label>
-        <input matInput [(ngModel)]="employee.name">
-      </mat-form-field>
-      <mat-form-field class="inputs" appearance="fill">
-        <mat-label>Apellido</mat-label>
-        <input matInput [(ngModel)]="employee.last_name">
-      </mat-form-field>
-      <mat-form-field class="inputs" appearance="fill">
-        <mat-label>Fecha de nacimiento</mat-label>
-        <input matInput type="date" [(ngModel)]="employee.birthday">
-      </mat-form-field>
+        <mat-form-field class="inputs" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="employee.name">
+        </mat-form-field>
+        <mat-form-field class="inputs" appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput [(ngModel)]="employee.last_name">
+        </mat-form-field>
+        <mat-form-field class="inputs" appearance="fill">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="employee.birthday">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+
+        </mat-form-field>
     </div>
     <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">Cancel</button>
-      <button mat-button (click)="createEmployee()">Crear</button>
-      <!-- <button mat-button [mat-dialog-close]="employee.name" cdkFocusInitial>Ok</button> -->
+        <button mat-button (click)="onNoClick()">Cancel</button>
+        <button mat-button (click)="createEmployee()">Crear</button>
+        <!-- <button mat-button [mat-dialog-close]="employee.name" cdkFocusInitial>Ok</button> -->
     </div>
 </div>

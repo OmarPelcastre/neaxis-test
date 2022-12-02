@@ -20,8 +20,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { MatCarouselModule } from 'ng-mat-carousel';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -51,6 +53,8 @@ import { MatCarouselModule } from 'ng-mat-carousel';
     MatInputModule,
     MatIconModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatCarouselModule.forRoot()
 
   ],

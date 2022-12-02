@@ -25,7 +25,9 @@ export class EmployeesTableComponent implements OnInit, AfterViewInit, OnChanges
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.search != '')
+    if(this.search == '!!!&')
+      this.getEmployees()
+    else if (this.search != '')
       this.filterEmployees()
     else {
       this.employees = this.employeesAux;
