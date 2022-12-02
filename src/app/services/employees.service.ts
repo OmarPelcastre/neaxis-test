@@ -8,11 +8,16 @@ import { Employee } from '../interfaces/Employee';
 })
 export class EmployeesService {
 
-  url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar_pelcastre"
+  private url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar_pelcastre"
 
+  private post_url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar"
   constructor(private _httpClient: HttpClient ) { }
 
   getAllEmployees(): Observable<any>{
     return this._httpClient.get(this.url)
+  }
+
+  createEmployee(employee: Employee): Observable<any>{
+    return this._httpClient.post(this.post_url, employee)
   }
 }

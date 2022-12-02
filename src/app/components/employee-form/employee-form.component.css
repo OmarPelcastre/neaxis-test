@@ -1,0 +1,13 @@
+.modal-container{
+
+    text-align: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.inputs{
+    width: 100%;
+}

@@ -1,7 +1,23 @@
-<p>employees-view works!</p>
-<div>
+<div class="table-buttons">
+    <div>     
+        <mat-form-field appearance="legacy" color="primary">
+            <mat-label>Buscar</mat-label>
+            <input matInput type="text" placeholder="Nombre o apellido" [(ngModel)]="search">
+            <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="searchEmployee()">
+            <mat-icon>search</mat-icon>
+        </button>
+    </div>
+    <div>
+        <button mat-fab color="primary" (click)="showNewEmployeeModal()">
+            <mat-icon>add</mat-icon>
+          </button>
+    </div>
     
 </div>
 <div>
-    <employees-table></employees-table>
+    <employees-table [search]="searchInTable"></employees-table>
 </div>

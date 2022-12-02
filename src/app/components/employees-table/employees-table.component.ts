@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Employee } from 'src/app/interfaces/Employee';
@@ -9,20 +9,41 @@ import { EmployeesService } from 'src/app/services/employees.service';
   templateUrl: './employees-table.component.html',
   styleUrls: ['./employees-table.component.css']
 })
-export class EmployeesTableComponent implements OnInit, AfterViewInit {
+export class EmployeesTableComponent implements OnInit, AfterViewInit, OnChanges {
+
+  @Input('search') search: string;
 
   employees: Employee[] = [];
-  constructor(private employeesService: EmployeesService) { 
-
-  }
+  employeesAux: Employee[] = [];
 
   displayedColumns: string[] = ['id', 'name', 'last_name', 'birthday'];
   dataSource = new MatTableDataSource<Employee>(this.employees);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  constructor(private employeesService: EmployeesService) {
 
-  
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.search != '')
+      this.filterEmployees()
+    else {
+      this.employees = this.employeesAux;
+      this.dataSource = new MatTableDataSource<Employee>(this.employees);
+      this.dataSource.paginator = this.paginator;
+    }
+  }
+
+  filterEmployees() {
+    this.search = this.search.toLowerCase()
+    this.employees = this.employees.filter(employee => {
+      return employee.name.toLocaleLowerCase().includes(this.search)
+        || employee.last_name.toLocaleLowerCase().includes(this.search)
+    })
+    this.dataSource = new MatTableDataSource<Employee>(this.employees);
+    this.dataSource.paginator = this.paginator;
+  }
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -32,15 +53,13 @@ export class EmployeesTableComponent implements OnInit, AfterViewInit {
     this.getEmployees()
   }
 
-  getEmployees(){
+  getEmployees() {
     this.employeesService.getAllEmployees().subscribe(
       (response) => {
-        console.info(response)
         this.employees = response.data.employees
-        console.log(this.employees)
+        this.employeesAux = response.data.employees
         this.dataSource = new MatTableDataSource<Employee>(this.employees);
         this.dataSource.paginator = this.paginator;
-
       }
     )
   }
