@@ -21,6 +21,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 
+import { MatCarouselModule } from 'ng-mat-carousel';
+
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
     EmployeesViewComponent,
     HomeComponent,
     GroupsViewComponent,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import { EmployeeFormComponent } from './components/employee-form/employee-form.
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCarouselModule.forRoot()
 
   ],
   providers: [],
