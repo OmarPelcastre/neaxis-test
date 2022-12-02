@@ -18,9 +18,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { MatCarouselModule } from 'ng-mat-carousel';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -35,7 +36,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeComponent,
     GroupsViewComponent,
     EmployeeFormComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -55,6 +56,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
     MatCarouselModule.forRoot()
 
   ],
