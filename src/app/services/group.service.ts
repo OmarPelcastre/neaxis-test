@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class GroupService {
 
-  private url = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/groups/omar"
+  private url = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/groups/omar_pelcastre"
   constructor(private _httpClient: HttpClient) {
 
   }

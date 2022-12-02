@@ -8,9 +8,9 @@ import { Employee } from '../interfaces/Employee';
 })
 export class EmployeesService {
 
-  private url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar"
+  private url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar_pelcastre"
 
-  private post_url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar"
+  private post_url: string = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/omar_pelcastre"
   constructor(private _httpClient: HttpClient ) { }
 
   getAllEmployees(): Observable<any>{
