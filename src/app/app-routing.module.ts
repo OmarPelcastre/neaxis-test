@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'empleados', component: EmployeesViewComponent},
   {path: 'grupos', component: GroupsViewComponent},
+  {path: '**', redirectTo: ''},
 
 ];
 

@@ -1,5 +1,5 @@
 <div class="group-view" *ngIf="groups.length > 0">
-    <div class="example-container">
+    <div class="groups-container">
         <h2>Grupos</h2>
         <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="groups" [cdkDropListConnectedTo]="[doneList]"
             class="example-list" (cdkDropListDropped)="drop($event)">
@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div class="example-container">
+    <div class="groups-container">
         <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="selected" [cdkDropListConnectedTo]="[todoList]"
             class="example-list" (cdkDropListDropped)="drop($event)">
             <h2>{{selected[0].name}}</h2>
