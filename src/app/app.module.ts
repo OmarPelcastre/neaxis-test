@@ -22,9 +22,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatListModule} from '@angular/material/list';
+
+
+import {DragDropModule} from '@angular/cdk/drag-drop';
+
 
 import { MatCarouselModule } from 'ng-mat-carousel';
-import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -57,7 +62,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatCarouselModule.forRoot()
+    MatCarouselModule.forRoot(),
+    DragDropModule,
+    MatListModule
 
   ],
   providers: [],

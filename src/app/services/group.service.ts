@@ -8,11 +8,17 @@ import { Observable } from 'rxjs';
 export class GroupService {
 
   private url = "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/groups/omar_pelcastre"
+  private groupEmployeesUrl = 
+  "https://6edeayi7ch.execute-api.us-east-1.amazonaws.com/v1/examen/employees/:tu_nombre/getByGroup?id="
   constructor(private _httpClient: HttpClient) {
 
   }
 
   getGroups(): Observable<any>{
     return this._httpClient.get(this.url)
+  }
+
+  getEmployeesByGroup(id: number):Observable<any>{
+    return this._httpClient.get(this.groupEmployeesUrl + id)
   }
 }
